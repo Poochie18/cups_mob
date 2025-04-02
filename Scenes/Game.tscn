@@ -1,0 +1,226 @@
+[gd_scene load_steps=10 format=3 uid="uid://cln3r8yclelc5"]
+
+[ext_resource type="Script" uid="uid://drup2mgupcvev" path="res://Scripts/Game.cs" id="1_acypc"]
+[ext_resource type="Script" uid="uid://lsl7llhqpft2" path="res://Scripts/UI.cs" id="2_7gyo3"]
+[ext_resource type="FontFile" uid="uid://dlfyxagh4vdlv" path="res://Sprites/Roboto-Regular.ttf" id="3_b2bpf"]
+[ext_resource type="PackedScene" uid="uid://xgwyf5lsfkt6" path="res://Scenes/GameOverModal.tscn" id="3_kldst"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jne5"]
+bg_color = Color(0.113725, 0.486275, 0.862745, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 8.0
+expand_margin_right = 8.0
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kldst"]
+bg_color = Color(0.115599, 0.487753, 0.860815, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_size = 8
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2bpf"]
+bg_color = Color(0.0847176, 0.44017, 0.788368, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_size = 8
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7lihs"]
+bg_color = Color(0.0980392, 0.462745, 0.823529, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_size = 8
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fgofq"]
+bg_color = Color(0.113725, 0.486275, 0.862745, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_size = 4
+shadow_offset = Vector2(2, 2)
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_acypc")
+
+[node name="BackGround" type="ColorRect" parent="."]
+z_index = -3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.969137, 0.969137, 0.969137, 1)
+
+[node name="Player1TableContainer" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Player1Table" type="Control" parent="Player1TableContainer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 60.0
+offset_top = 1096.0
+offset_right = 666.0
+offset_bottom = 1203.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Player1Label" type="Label" parent="Player1TableContainer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 24.0
+offset_top = 598.0
+offset_right = 224.0
+offset_bottom = 655.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_b2bpf")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_7jne5")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Grid" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 398.0
+offset_right = 660.0
+offset_bottom = 998.0
+columns = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Player2TableContainer" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Player2Table" type="Control" parent="Player2TableContainer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 69.0
+offset_top = 227.0
+offset_right = 640.0
+offset_bottom = 331.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Player2Label" type="Label" parent="Player2TableContainer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 976.0
+offset_top = 610.0
+offset_right = 1176.0
+offset_bottom = 667.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_b2bpf")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_7jne5")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("2_7gyo3")
+metadata/_edit_use_anchors_ = true
+
+[node name="RestartButton" type="Button" parent="UI"]
+visible = false
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 1
+offset_left = 100.0
+offset_top = 50.0
+offset_right = 450.0
+offset_bottom = 150.0
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_b2bpf")
+theme_override_font_sizes/font_size = 44
+theme_override_styles/hover = SubResource("StyleBoxFlat_kldst")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b2bpf")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7lihs")
+text = "Restart"
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BackToMenuButton" type="Button" parent="UI"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -450.0
+offset_top = 50.0
+offset_right = -100.0
+offset_bottom = 150.0
+grow_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_b2bpf")
+theme_override_font_sizes/font_size = 44
+theme_override_styles/hover = SubResource("StyleBoxFlat_kldst")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b2bpf")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7lihs")
+text = "Menu"
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="StatusLabel" type="Label" parent="UI"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 50.0
+offset_right = 300.0
+offset_bottom = 150.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_b2bpf")
+theme_override_font_sizes/font_size = 44
+theme_override_styles/normal = SubResource("StyleBoxFlat_fgofq")
+text = "Multiplayer"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="GameOverModal" parent="." instance=ExtResource("3_kldst")]
+visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 0.0
+offset_bottom = 0.0
